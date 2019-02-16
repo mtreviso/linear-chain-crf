@@ -7,6 +7,8 @@ Linear-chain CRF in PyTorch.
 
 Blog post explaining this implementation: [medium.com/mtreviso/bla](medium.com/mtreviso/bla)
 
+## Examples
+Check `bilstm_crf.py` and `main.py`.
 
 ## Dependencies
 `torch>=0.4.1`: you can install it by running `pip3 install torch`

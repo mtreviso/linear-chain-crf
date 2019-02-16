@@ -215,7 +215,8 @@ class CRF(nn.Module):
         return torch.logsumexp(end_scores, dim=1)
 
     def _viterbi_decode(self, emissions, mask):
-        """Compute the partition function in log-space using the forward-algorithm.
+        """Compute the viterbi algorithm to find the most probable sequence of labels
+        given a sequence of emissions.
 
         Args:
             emissions (torch.Tensor): (batch_size, seq_len, nb_labels)
