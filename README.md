@@ -5,7 +5,7 @@ Linear-chain CRF in PyTorch.
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 
-Blog post explaining this implementation: [medium.com/mtreviso/bla](medium.com/mtreviso/bla)
+Blog post explaining this implementation: [in-progress]()
 
 ## Examples
 Check `bilstm_crf.py` and `main.py`.
