@@ -90,7 +90,7 @@ class CRF(nn.Module):
 
         scores = self._compute_scores(emissions, tags, mask=mask)
         partition = self._compute_log_partition(emissions, mask=mask)
-        return scores - partition
+        return torch.sum(scores - partition)
 
     def decode(self, emissions, mask=None):
         """Find the most probable sequence of labels given the emissions using

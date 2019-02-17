@@ -101,26 +101,23 @@ if __name__ == "__main__":
 
     # Make sure prepare_sequence from earlier in the LSTM section is loaded
     for epoch in range(300):  # normally you would NOT do 300 epochs, it is toy data
-        for sentence, tags in training_data:
-            # Step 1. Remember that Pytorch accumulates gradients.
-            # We need to clear them out before each instance
-            model.zero_grad()
+        
+        # Step 1. Remember that Pytorch accumulates gradients.
+        # We need to clear them out before each instance
+        model.zero_grad()
 
-            # Step 2. Get our inputs ready for the network, that is,
-            # turn them into Tensors of word indices.
-            sentence_in = prepare_sequence(sentence, word_to_ix)
-            sentence_in = sentence_in.unsqueeze(0)
+        # Step 2. Get our inputs ready for the network, that is,
+        # turn them into Tensors of word indices.
+        sentence_in = x_sent
+        targets = x_tags
 
-            targets = torch.tensor([tag_to_ix[t] for t in tags], dtype=torch.long)
-            targets = targets.unsqueeze(0)
+        # Step 3. Run our forward pass.
+        loss = model.loss(sentence_in, targets, mask=mask)
 
-            # Step 3. Run our forward pass.
-            loss = model.loss(sentence_in, targets)
-
-            # Step 4. Compute the loss, gradients, and update the parameters by
-            # calling optimizer.step()
-            loss.backward()
-            optimizer.step()
+        # Step 4. Compute the loss, gradients, and update the parameters by
+        # calling optimizer.step()
+        loss.backward()
+        optimizer.step()
 
     # Check predictions after training
     print('Predictions after training:')
