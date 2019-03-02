@@ -5,7 +5,6 @@ from torch import nn
 class CRF(nn.Module):
     """
     Linear-chain Conditional Random Field (CRF).
-    More info in: medium.com/mtreviso/crf
 
     Args:
         nb_labels (int): number of labels in your tagset, including special symbols.
@@ -15,7 +14,7 @@ class CRF(nn.Module):
         pad_tag_id (int, optional): integer representing the pad symbol in your tagset.
             If None, the model will treat the PAD as a normal tag. Otherwise, the model
             will apply constraints for PAD transitions.
-        batch_first (bool): Wheter the first dimension represents the batch dimension.
+        batch_first (bool): Whether the first dimension represents the batch dimension.
     """
 
     def __init__(
