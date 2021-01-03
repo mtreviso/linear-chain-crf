@@ -75,8 +75,8 @@ class CRF(nn.Module):
                 (seq_len, batch_size) otherwise.
 
         Returns:
-            torch.Tensor: the log-likelihoods for each sequence in the batch.
-                Shape of (batch_size,)
+            torch.Tensor: the (summed) log-likelihoods of each sequence in the batch.
+                Shape of (1,)
         """
 
         # fix tensors order by setting batch as the first dimension
